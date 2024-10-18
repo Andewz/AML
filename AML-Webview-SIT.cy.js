@@ -27,6 +27,7 @@ describe('AML', () => {
                 console.log(Url);
                 extractedUrl = Url.split('=')[1];
                 console.log(extractedUrl);
+                cy.log('expect');
                 expect(extractedUrl).to.not.be.undefined; // ตรวจสอบว่าค่า extractedUrl ไม่ใช่ undefined
               } else {
                 throw new Error('Response status is not as expected');
