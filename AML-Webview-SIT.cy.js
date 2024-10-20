@@ -3,8 +3,8 @@ describe('AML', () => {
     let Url;
     let finalurl;
 
-    describe('CallPE', () => {   
-        it('Passed',() => {
+    describe('APIs Test', () => {   
+        it('PE-Passed',() => {
             cy.request({
               method: 'GET',
               form: true,
@@ -37,11 +37,11 @@ describe('AML', () => {
         });
 
     describe('Webview Test', () => {
-    it('passed', () => {
+      it('passed', () => {
         cy.log('Open Webview')
         cy.visit(`https://fatcaportal-sit.se.scb.co.th/aml/web?UserId=test&accept-language=th&code=${extractedUrl}&ekycMethod=1&referenceID=23123&userType=23&funcNm=223&service=123`);
         cy.wait(4000)
-        cy.get('.btn-confirm').click()
+        cy.get('.btn-confirm',{ timeout: 10000 }).debug().should('be.visible').click()
         cy.wait(5000)
         cy.get('.btn-confirm').scrollIntoView({ duration: 5000 }).click()
         cy.wait(2000)
