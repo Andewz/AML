@@ -1,4 +1,4 @@
-describe('AML', () => {2222
+describe('AML', () => {
     let extractedUrl;
     let Url;
     let finalurl;
@@ -8,15 +8,14 @@ describe('AML', () => {2222
             cy.request({
               method: 'GET',
               form: true,
-              url: 'https://api-sit.partners.scb/partners/v3/consent/3f3e065b-279f-459c-8395-12707aa7ab36',
+              url: 'https://api-uat.partners.scb/partners/v3/consent/ddb3107b-5f89-49d7-954e-d52ecaa49a38',
               headers: {
-                'Cookie':'TS014b3884=01bfa4d02968039667d03c13ec098345b79491195120db61635806ae2e336bb89fdd8a987f8dec47018d0f5d5ca9cd814770926ef5',
-                'Cookie':'TS014b3884=01bfa4d0294ba018919fb22ac88d0544bbee5046bf36a9d9a5b719b1d5f9e4ad73f199b417547f603b2232c6ba0e1e2d5d33923117',
-                'apikey':'l7bfcf066a5d0d4ff6b48657cb57f5e0f9',
-                'apisecret':'5474e01e90eb44e6963c5c2191d5a83e',
+                'Cookie':'TS019cb087=01bfa4d029df49db2ec51bc064e170eea9252a9c0e5b20c1fed6b0f46661ca2790ab5f68a1b4f9fd62a8ffea2aa179d7dcd62b6de2',
+                'apikey':'l7311f7148299e4504aa4eba4a7536f5a9',
+                'apisecret':'3dc5032451bc446cbc574aec25d01247',
                 'content-type':'application/json',
                 'accept-language':'en',
-                'resourceOwnerId':'00000023722490',
+                'resourceOwnerId':'00000023884901',
                 'requestUId':'5c00d79e-2cca-4413-b40a-d6ab8e9eddcf'   
               },
               
@@ -39,7 +38,7 @@ describe('AML', () => {2222
     describe('Webview Test', () => {
     it('passed', () => {
         cy.log('Open Webview')
-        cy.visit(`https://fatcaportal-sit.se.scb.co.th/aml/web?UserId=test&accept-language=th&code=${extractedUrl}&ekycMethod=1&referenceID=23123&userType=23&funcNm=223&service=123`);
+        cy.visit(`https://fatcaportal-uat.se.scb.co.th/aml/web?UserId=test&accept-language=th&code=${extractedUrl}&ekycMethod=1&referenceID=23123&userType=23&funcNm=223&service=123`);
         cy.wait(4000)
         cy.get('.btn-confirm').click()
         cy.wait(5000)
