@@ -76,6 +76,7 @@ describe ('Fatca have Tin',() =>{
         cy.get('.btn',{ timeout: 4000 }).debug().should('be.visible').click();
         cy.get('#vehicle1').scrollIntoView({ duration: 1000 }).click();
         cy.get('.btn',{ timeout: 4000 }).debug().should('be.visible').click();
+        cy.log('test commit');
 
 
     } else {
