@@ -50,6 +50,7 @@ describe ('Fatca have Tin',() =>{
 
         cy.log('Confirm Fatca');
         cy.get('.btn',{ timeout: 4000 }).debug().should('be.visible').click();
+        cy.wait(1000);
 
         cy.log('HaveTin');
         cy.get('#ansYes_0').click();
