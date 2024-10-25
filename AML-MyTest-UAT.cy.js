@@ -31,15 +31,16 @@ describe('AML', () => {
 
 
         cy.visit(`https://fatcaportal-uat.se.scb.co.th/aml/web?UserId=test&accept-language=en&code=${extractedUrl}&ekycMethod=1&referenceID=23123&userType=23&funcNm=223&service=123`);
-        cy.wait(5000)
+        cy.wait(6000)
         cy.log(`random number: ${rand}`);
         cy.get('.btn-confirm').click()
-        cy.wait(5000)
+        cy.wait(6000)
         cy.get('.btn-confirm').scrollIntoView({ duration: 200 }).click()
         cy.log('Working Infomation')
         cy.get(':nth-child(1) > [style="font-size: 22px; height: 44px; border-radius: 4px; border: 1px solid rgb(201, 198, 205); padding: 0px 12px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; color: rgb(53, 50, 57);"]').click()
+        cy.wait(700)
         cy.get('.scroll-content > :nth-child(7)').click()
-        cy.wait(500)
+        cy.wait(700)
         cy.get(':nth-child(2) > [style="display: flex; flex-direction: column;"] > .textfield-input')
           .clear().type(`พรรคการเมืองแห่งหนึ่ง${rand}`)// Company
         cy.get('[style="display: flex; justify-content: center; align-items: center; width: 24px;"] > img').click()
@@ -62,30 +63,32 @@ describe('AML', () => {
         cy.log('Working Address')
         cy.get('[style="font-size: 22px; height: 44px; border-radius: 4px; border: 1px solid rgb(201, 198, 205); padding: 0px 12px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; color: rgb(53, 50, 57);"]').click()
         cy.get(`.scroll-content > :nth-child(${Math.floor(Math.random() * 77)+1}`).click()//Province
-        cy.wait(500)
+        cy.wait(700)
         cy.get('.scroll-content > :nth-child(1)').click() // District
-        cy.wait(500)
+        cy.wait(700)
         cy.get('.scroll-content > :nth-child(1)').click() // Sub-District
-        cy.wait(500)
+        cy.wait(700)
         cy.get('[style="padding: 24px; background-color: rgb(255, 255, 255); border: 1px solid rgb(234, 231, 236);"]').click() // Postcode
-        cy.wait(500)
+        cy.wait(700)
         cy.get('.btn-confirm').scrollIntoView({ duration: 200 }).click()
         cy.log('Back to Working Infomation')
         cy.get('.scroll-content').scrollTo('bottom')
-        cy.wait(500)
+        cy.wait(700)
         cy.get(':nth-child(4) > [style="font-size: 22px; height: 44px; border-radius: 4px; border: 1px solid rgb(201, 198, 205); padding: 0px 12px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; color: rgb(53, 50, 57);"] > img').click() // SourceofIncome
-        cy.wait(500)
+        cy.wait(700)
         cy.get(`.scroll-content > :nth-child(${Math.floor(Math.random() * 250)+1}`).click()
         cy.get(':nth-child(5) > [style="display: flex; flex-direction: column;"] > .textfield-input').clear().type(`${rand}00`)
-        cy.get('.btn-confirm').click()
-        cy.wait(500)
-        cy.log('Contact Infomation')
-        cy.get('.btn-confirm').click()
-        cy.wait(500)
-        cy.log('Review')
-        cy.get('[style="align-content: end; padding: 24px 16px; flex: 1 1 0%; background-color: rgb(245, 243, 246);"]').scrollIntoView({ duration: 1000 }) // Scrolls 'footer' into view
+        cy.wait(700)
         cy.get('.btn-confirm').click()
         cy.wait(700)
+        cy.log('Contact Infomation')
+        cy.get('.btn-confirm').click()
+        cy.wait(1000)
+        cy.log('Review')
+        cy.get('[style="align-content: end; padding: 24px 16px; flex: 1 1 0%; background-color: rgb(245, 243, 246);"]').scrollIntoView({ duration: 2000 }) // Scrolls 'footer' into view
+        cy.wait(700)
+        cy.get('.btn-confirm').click()
+        cy.wait(1000)
         cy.get(':nth-child(2) > span').click()
       }
       else {
