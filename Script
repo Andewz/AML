@@ -1,0 +1,3 @@
+cy.get('.flex-row').click();
+cy.get(`:nth-child(${random}) > .searchList__item`).scrollIntoView({ duration: 1000 }).click();
+cy.get(':nth-child(2) > .input-text').clear().type('Bankok');
