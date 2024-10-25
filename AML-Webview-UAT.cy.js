@@ -37,7 +37,7 @@ describe('AML', () => {
         cy.wait(6000)
         cy.get('.btn-confirm').scrollIntoView({ duration: 200 }).click()
 
-        cy.get('.title').should('have.text', 'Working information')
+        cy.get('.title', { timeout: 10000 }).should('have.text', 'Working information')
         cy.get(':nth-child(1) > [style="font-size: 22px; height: 44px; border-radius: 4px; border: 1px solid rgb(201, 198, 205); padding: 0px 12px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; color: rgb(53, 50, 57);"]').click()
         cy.wait(700)
         cy.get('.scroll-content > :nth-child(7)').click()
@@ -46,7 +46,7 @@ describe('AML', () => {
           .clear().type(`พรรคการเมืองแห่งหนึ่ง${rand}`)// Company
         cy.get('[style="display: flex; justify-content: center; align-items: center; width: 24px;"] > img').click()
 
-        cy.get('.title').should('have.text', 'Working address')
+        cy.get('.title', { timeout: 10000 }).should('have.text', 'Working address')
         cy.get('.infomation-content > :nth-child(1) > [style="display: flex; flex-direction: column;"] > .textfield-input')
           .clear().type(`${Math.floor(Math.random() * 100)}/${rand}`) // house no.
         cy.get('.infomation-content > :nth-child(2) > [style="display: flex; flex-direction: column;"] > .textfield-input')
@@ -76,7 +76,7 @@ describe('AML', () => {
         cy.wait(1000)
         cy.get('.btn-confirm').scrollIntoView({ duration: 700 }).click()
 
-        cy.get('.title').should('have.text', 'Working information')
+        cy.get('.title', { timeout: 10000 }).should('have.text', 'Working information')
         cy.get('.scroll-content').scrollTo('bottom')
         cy.get(':nth-child(4) > [style="font-size: 22px; height: 44px; border-radius: 4px; border: 1px solid rgb(201, 198, 205); padding: 0px 12px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; color: rgb(53, 50, 57);"] > img').click() // SourceofIncome
         cy.wait(1000)
@@ -85,10 +85,10 @@ describe('AML', () => {
         cy.get(':nth-child(5) > [style="display: flex; flex-direction: column;"] > .textfield-input').clear().type(`${rand}00`)
         cy.get('.btn-confirm').scrollIntoView({ duration: 500 }).click()
 
-        cy.get('.title').should('have.text', 'Contact information')
+        cy.get('.title', { timeout: 10000 }).should('have.text', 'Contact information')
         cy.get('.btn-confirm').click()
 
-        cy.get('.title').should('have.text', 'Review information')
+        cy.get('.title', { timeout: 10000 }).should('have.text', 'Review information')
         cy.get('.btn-confirm').scrollIntoView({ duration: 500 }).click()
         cy.wait(1000)
         cy.get(':nth-child(2) > span').click()
