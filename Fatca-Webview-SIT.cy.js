@@ -16,7 +16,7 @@ describe ('Fatca have Tin',() =>{
               'apisecret':'5474e01e90eb44e6963c5c2191d5a83e',
               'content-type':'application/json',
               'accept-language':'en',
-              'resourceOwnerId':'00000023722490',
+              'resourceOwnerId':'00000023722690',
               'requestUId':'5c00d79e-2cca-4413-b40a-d6ab8e9eddcf'   
             },
             
@@ -31,7 +31,7 @@ describe ('Fatca have Tin',() =>{
               expect(extractedUrl).to.not.be.undefined; // ตรวจสอบว่าค่า extractedUrl ไม่ใช่ undefined
 
         cy.log('OpenURL');
-        cy.visit(`https://fatcaportal-sit.se.scb.co.th/crs/web?ekycMethod=default&accept-language=TH&referenceID=${extractedUrl}&userType=ETB&UserId=ENET&funcNm=Search&service=crs`);
+        cy.visit(`https://fatcaportal-sit.se.scb.co.th/crs/web?ekycMethod=NDID&accept-language=EN&referenceID=894fca40-3901-4ab8-a640-2c0ed479d3c3&userType=NTB&UserId=ENET&funcNm=Search&service=crs&code=${extractedUrl}`);
         cy.wait(4000)
 
         cy.log('Answer Fatca');
