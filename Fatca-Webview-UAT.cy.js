@@ -1,6 +1,6 @@
 describe('Fatca have Tin', () => {
 
-  let rm14 = "00000023885087";
+  let rm14 = "00000023884901";
 
   let random = Math.floor(Math.random() * 250) + 1;
   let random2 = Math.floor(Math.random() * 250) + 1;
@@ -57,7 +57,7 @@ describe('Fatca have Tin', () => {
             cy.log('AddTinNoreason');
             cy.get(':nth-child(1) > .grid > .flex-row', { timeout: 4000 }).debug().should('be.visible').click();
             cy.wait(1000)
-            cy.get(`:nth-child(${random})> .searchList__item`).scrollIntoView({ duration: 4000 }).click();
+            cy.get(`:nth-child(${random})> .searchList__item`).scrollIntoView({ duration: 2000 }).click();
             cy.wait(1000)
             cy.get(':nth-child(2) > .input-text').clear().type('FR3764324348');
             cy.wait(1000)
@@ -75,7 +75,7 @@ describe('Fatca have Tin', () => {
 
         cy.log('Nationlity')
         cy.get('.flex-row').click();
-        cy.get(`:nth-child(${random2}) > .searchList__item`).scrollIntoView({ duration: 1000 }).click();
+        cy.get(`:nth-child(${random2}) > .searchList__item`).scrollIntoView({ duration: 2000 }).click();
         cy.get(':nth-child(2) > .input-text').clear().type('Bankok');
 
         cy.log('Complete CRS');
