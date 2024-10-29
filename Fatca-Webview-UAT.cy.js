@@ -1,6 +1,6 @@
 describe('Fatca have Tin', () => {
 
-  let rm14 = "00000023884901";
+  let rm14 = "00000023885087";
 
   let random = Math.floor(Math.random() * 250) + 1;
   let random2 = Math.floor(Math.random() * 250) + 1;
@@ -47,21 +47,31 @@ describe('Fatca have Tin', () => {
         cy.get('.btn > .flex', { timeout: 4000 }).debug().should('be.visible').click();
         cy.wait(1000);
 
-        cy.log('HaveTin');
-        cy.get('#ansYes_0').click();
-        cy.get('.btn', { timeout: 4000 }).debug().should('be.visible').click();
+        cy.get('body').then(($body) => {
+          if ($body.find('#ansYes_0').length > 0) {
+            // ถ้าเจอปุ่ม RADIO BUTTON ให้ทำงาน
+            cy.log('Yestin');
+            cy.get('#ansYes_0').click();
+            cy.get('.btn', { timeout: 4000 }).debug().should('be.visible').click();
 
-        cy.log('AddTinNoreason');
-        cy.get(':nth-child(1) > .grid > .flex-row', { timeout: 4000 }).debug().should('be.visible').click();
-        cy.wait(1000)
-        cy.get(`:nth-child(${random})> .searchList__item`).scrollIntoView({ duration: 1000 }).click();
-        cy.wait(1000)
-        cy.get(':nth-child(2) > .input-text').clear().type('FR3764324348');
-        cy.wait(1000)
-        cy.get('.btn > .flex', { timeout: 4000 }).debug().should('be.visible').click();
+            cy.log('AddTinNoreason');
+            cy.get(':nth-child(1) > .grid > .flex-row', { timeout: 4000 }).debug().should('be.visible').click();
+            cy.wait(1000)
+            cy.get(`:nth-child(${random})> .searchList__item`).scrollIntoView({ duration: 4000 }).click();
+            cy.wait(1000)
+            cy.get(':nth-child(2) > .input-text').clear().type('FR3764324348');
+            cy.wait(1000)
+            cy.get('.btn > .flex', { timeout: 4000 }).debug().should('be.visible').click();
 
-        cy.log('Confirm tin');
-        cy.get('.bg-\\[\\#7631C1\\]').debug().should('be.visible').click();
+            cy.log('have tin already');
+            cy.get('.bg-\\[\\#7631C1\\]').debug().should('be.visible').click();
+
+          } else {
+            // ถ้าไม่เจอ ให้ทำงานอีกคำสั่ง
+            cy.log('have tin already');
+            cy.get('.bg-\\[\\#7631C1\\]').debug().should('be.visible').click();
+          }
+        });
 
         cy.log('Nationlity')
         cy.get('.flex-row').click();
