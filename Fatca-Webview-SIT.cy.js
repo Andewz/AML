@@ -16,7 +16,7 @@ describe ('Fatca have Tin',() =>{
               'apisecret':'5474e01e90eb44e6963c5c2191d5a83e',
               'content-type':'application/json',
               'accept-language':'en',
-              'resourceOwnerId':'00000023722690',
+              'resourceOwnerId':'00000023722714',
               'requestUId':'5c00d79e-2cca-4413-b40a-d6ab8e9eddcf'   
             },
             
@@ -52,7 +52,7 @@ describe ('Fatca have Tin',() =>{
         cy.get('.btn',{ timeout: 4000 }).debug().should('be.visible').click();
         cy.wait(1000);
 
-        cy.log('HaveTin');
+        cy.log('Yestin');
         cy.get('#ansYes_0').click();
         cy.get('.btn',{ timeout: 4000 }).debug().should('be.visible').click();
 
