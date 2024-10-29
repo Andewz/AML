@@ -32,8 +32,8 @@ describe('Fatca have Tin', () => {
         expect(extractedUrl).to.not.be.undefined; // ตรวจสอบว่าค่า extractedUrl ไม่ใช่ undefined
 
         cy.log('OpenURL');
-        cy.visit(`https://fatcaportal-uat.se.scb.co.th/crs/web?ekycMethod=default&accept-language=TH&referenceID=${extractedUrl}&userType=ETB&UserId=ENET&funcNm=Search&service=crs`);
-        cy.wait(4000)
+        cy.visit(`https://fatcaportal-uat.se.scb.co.th/crs/web?ekycMethod=NDID&accept-language=EN&referenceID=894fca40-3901-4ab8-a640-2c0ed479d3c3&userType=NTB&UserId=ENET&funcNm=Search&service=crs&code=${extractedUrl}`);
+        cy.wait(7000)
 
         cy.log('Answer Fatca');
         cy.get('#ansNo_0').click();
